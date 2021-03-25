@@ -48,7 +48,7 @@ class BookController extends Controller
         $book->about = $request->book_about;
         $book->author_id = $request->author_id;
         $book->save();
-        return redirect()->route('book.index');
+        return redirect()->route('book.index')->with('success_message', 'Book has been created.');
  
     }
 
@@ -91,7 +91,7 @@ class BookController extends Controller
         $book->about = $request->book_about;
         $book->author_id = $request->author_id;
         $book->save();
-        return redirect()->route('book.index');
+        return redirect()->route('book.index')->with('success_message', 'Book has been updated.');
  
     }
 
@@ -103,11 +103,8 @@ class BookController extends Controller
      */
     public function destroy(Book $book)
     {
-        if($author->authorBooks->count()){
-            return 'Trinti negalima, nes turi knygų';
-        }
-        $author->delete();
-        return redirect()->route('author.index');
+        $book->delete();
+        return redirect()->route('book.index')->with('info_message', 'Book was deleted.');
  
     }
 }

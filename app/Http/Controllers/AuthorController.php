@@ -41,8 +41,9 @@ class AuthorController extends Controller
         $author->name = $request->author_name;
         $author->surname = $request->author_surname;
         $author->save();
-        return redirect()->route('author.index');
-
+        // Author::create($request);
+        return redirect()->route('author.index')->with('success_message', 'The Author has been created.');
+        
     }
 
     /**
@@ -79,7 +80,7 @@ class AuthorController extends Controller
         $author->name = $request->author_name;
         $author->surname = $request->author_surname;
         $author->save();
-        return redirect()->route('author.index');
+        return redirect()->route('author.index')->with('success_message', 'The Author has been updated.');
  
     }
 
@@ -91,8 +92,12 @@ class AuthorController extends Controller
      */
     public function destroy(Author $author)
     {
+        if($author->authorBooks->count()){
+        // if($author->authorBooksList->count() !==0 ){
+            return redirect()->route('author.index')->with('info_message', 'Trinti negalima, nes turi knygų.');
+        }
         $author->delete();
-        return redirect()->route('author.index');
+        return redirect()->route('author.index')->with('info_message', 'The Author was deleted.');
  
     }
 }
