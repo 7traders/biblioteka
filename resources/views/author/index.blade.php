@@ -14,7 +14,14 @@
    <div class="row justify-content-center">
        <div class="col-md-8">
            <div class="card">
-               <div class="card-header">List of Authors</div>
+               <div class="card-header">
+                  <h2>List of Authors</h2>
+
+                  <a href="{{route('author.index')}}">Default</a>
+                  <a href="{{route('author.index', ['sort' => 'name'])}}">Sort by Name</a>
+                  <a href="{{route('author.index', ['sort' => 'surname'])}}">Sort by Surname</a>
+               
+               </div>
                <div class="card-body">
                 <ul class="list-group">
                     @foreach ($authors as $author)

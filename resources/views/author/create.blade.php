@@ -19,14 +19,14 @@
                      {{-- Name: <input type="text" name="author_name"> --}}
                      <div class="form-group">
                         <label>Name: </label>
-                        <input type="text" class="form-control" name="author_name">
+                        <input type="text" class="form-control" name="author_name" value="{{old('author_name')}}">
                         <small class="form-text text-muted">Enter new Authors Name</small>
                      </div>
 
                      {{-- Surname: <input type="text" name="author_surname"> --}}
                      <div class="form-group">
                         <label>Surname: </label>
-                        <input type="text" class="form-control" name="author_surname">
+                        <input type="text" class="form-control" name="author_surname" value="{{old('author_surname')}}">
                         <small class="form-text text-muted">Enter new Authors Surname</small>
                      </div>
 
