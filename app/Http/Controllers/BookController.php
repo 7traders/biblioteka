@@ -14,10 +14,25 @@ class BookController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $books = Book::all();
-        return view('book.index', ['books' => $books]);
+        $authors = Author::all();
+        if($request->author_id) {
+            $books = Book::where('author_id', $request->author_id)->get();
+            $filterBy = $request->author_id;
+        } else {
+            $books = Book::all();
+        }
+
+        if ($request->sort && 'asc' == $request->sort) {
+            $books = $books->sortBy('title');
+            $sortBy = 'asc';
+        } elseif ($request->sort && 'desc' == $request->sort) {
+            $books = $books->sortByDesc('title');
+            $sortBy = 'desc';
+        }
+
+        return view('book.index', ['books' => $books, 'authors' => $authors, 'filterBy' => $filterBy ?? 0, 'sortBy' => $sortBy ?? '']);
  
     }
 

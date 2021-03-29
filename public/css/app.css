@@ -10971,4 +10971,30 @@ a.text-dark:focus {
   font-style: italic;
 }
 
+.make-inline {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.make-inline.column {
+  flex-direction: column;
+  height: 37px;
+  justify-content: center;
+}
+
+.make-inline select,
+.make-inline label,
+.make-inline input {
+  margin: 0 12px;
+}
+
+.make-inline input {
+  margin-top: 12px;
+}
+
+.make-inline.form-group {
+  margin-bottom: 0;
+}
+
 
