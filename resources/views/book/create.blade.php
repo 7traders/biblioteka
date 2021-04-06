@@ -58,6 +58,17 @@
                         <small class="form-text text-muted">Select Author</small>
                     </div>
 
+                    <div class="form-group">
+                        <label>Publisher: </label>
+                        <select name="publisher_id">
+                            @foreach ($publishers as $publisher)
+                                <option value="{{$publisher->id}}">{{$publisher->title}}</option>
+                            @endforeach
+                        </select>
+                        <small class="form-text text-muted">Select Publisher</small>
+                    </div>
+
+
                     @csrf
                     <button type="submit" class="btn btn-success">ADD</button>
                     </form>

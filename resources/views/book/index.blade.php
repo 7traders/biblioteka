@@ -58,6 +58,9 @@
                           <div class="list-line__books__author">
                             {{$book->bookAuthor->name}} {{$book->bookAuthor->surname}}
                           </div>
+                          <div class="list-line__books__author">
+                            <b>Publisher: </b> {{$book->bookPublisher->title}}
+                          </div>
                         </div>
                         <div class="list-line__buttons">
                           <a href="{{route('book.edit',[$book])}}" class="btn btn-primary">EDIT</a>
