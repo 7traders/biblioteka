@@ -14,7 +14,7 @@
            <div class="card">
                <div class="card-header">Edit Author</div>
                <div class="card-body">
-                  <form method="POST" action="{{route('author.update',[$author->id])}}">
+                  <form method="POST" action="{{route('author.update',[$author->id])}}" enctype="multipart/form-data">
 
                      {{-- Name: <input type="text" name="author_name" value="{{$author->name}}"> --}}
                      <div class="form-group">
@@ -28,6 +28,15 @@
                         <label>Surname: </label>
                         <input type="text" class="form-control" name="author_surname" value="{{old('author_surname', $author->surname)}}">
                         <small class="form-text text-muted">Enter Authors Surname</small>
+                     </div>
+
+                     <div class="form-group">
+                        <label>Portret: </label>
+                        <span style="padding: 8px; margin: 8px; display: inline-block;">
+                           <img src="{{$author->portret}}">
+                        </span>
+                        <input type="file" class="form-control" name="author_portret">
+                        <small class="form-text text-muted">Upload Picture</small>
                      </div>
 
                      @csrf

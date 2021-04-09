@@ -32,6 +32,7 @@ class DatabaseSeeder extends Seeder
         DB::table('authors')->insert([
             'name' => $faker->firstName(),
             'surname' => $faker->lastName(),
+            'portret' => $faker->imageUrl(100, 150),
         ]);
         }
         foreach(range(1, $publishers) as $_) {
